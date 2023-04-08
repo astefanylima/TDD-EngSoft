@@ -9,11 +9,11 @@ test('Dado um aluno já autenticado e pagando a assinatura mensal, quando acessa
     let curso3 = new Curso("MBA Especialista", "Focado para especialistas", 360, 50000, "Rafael da Paz", "matutino");
     
     let aluno = new Aluno("Stefany");
+    aluno.set_assinante = true;
     let plataforma = new Plataforma([aluno], [curso1, curso2, curso3]);
 
     //act
-    let is_assinante = plataforma.verificar_aluno();
-
+    let is_assinante = plataforma.verificar_aluno(aluno.id);
     //assert
     expect(is_assinante).toBe(true);
 });

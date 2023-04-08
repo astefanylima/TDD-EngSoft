@@ -1,11 +1,19 @@
 
 module.exports = class Plataforma {
-    constructor (alunos, cursos) {
+    constructor(alunos, cursos) {
         this._alunos = alunos;
-        this._cursos = cursos;      
-        }
+        this._cursos = cursos;
+    }
 
-    verificar_aluno () {
+    get alunos() {
+        return this._alunos;
+    }
+
+    verificar_aluno(id) {
+        let aluno = this.alunos.find(element => element.id == id);
+        if (aluno) {
+            return aluno.assinante;
+        }
         return false;
     }
 }
